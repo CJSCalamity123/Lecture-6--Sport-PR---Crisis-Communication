@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPG 602: Sport PR &amp; Crisis Communication — Concept Map &amp; NBA COVID-19 Timeline</title>
+  <style>
+    /* ==========================================================================
+       ACADEMIC-EDITORIAL LIGHT THEME DESIGN TOKENS
+       Off-white slate canvas, crisp white cards, color-coded category badges
+       ========================================================================== */
+    :root {
+      --bg-canvas: #ffffff;
+      --bg-card: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-hover: #e2e8f0;
+      --border-light: #e2e8f0;
+      --border-medium: #ffffff;
+
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+
+      /* Category Color Palette */
+      --cat-hub: #4f46e5;
+      --cat-hub-soft: #eef2ff;
+      --cat-hub-border: #c7d2fe;
+
+      --cat-core: #059669;
+      --cat-core-soft: #ecfdf5;
+      --cat-core-border: #a7f3d0;
+
+      --cat-crisis: #d97706;
+      --cat-crisis-soft: #fffbeb;
+      --cat-crisis-border: #fde68a;
+
+      --cat-case: #e11d48;
+      --cat-case-soft: #fff1f2;
+      --cat-case-border: #fecdd3;
+
+      --cat-practice: #2563eb;
+      --cat-practice-soft: #eff6ff;
+      --cat-practice-border: #bfdbfe;
+
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -4px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.12);
+
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION & EDITORIAL HEADER
+       ========================================================================== */
+    .top-nav {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-light);
+    }
+
+    .meta-pill.course {
+      background: var(--cat-hub-soft);
+      color: var(--cat-hub);
+      border-color: var(--cat-hub-border);
+    }
+
+    .app-title {
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    .app-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* Two-View Segmented Switcher */
+    .view-switcher {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      padding: 0.3rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      gap: 0.3rem;
+    }
+
+    .view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .view-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .view-btn.active {
+      background: var(--bg-card);
+      color: var(--cat-hub);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    /* ==========================================================================
+       VIEW CONTAINERS
+       ========================================================================== */
+    .view-section {
+      display: none;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.35rem 1.5rem 2.75rem;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    /* ==========================================================================
+       CONCEPT MAP VIEW: FILTER BAR & MAIN WORKSPACE
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-pill:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .filter-pill.active {
+      background: var(--text-primary);
+      border-color: var(--text-primary);
+      color: #ffffff;
+    }
+
+    .swatch {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .map-workspace {
+      display: grid;
+      grid-template-columns: 1fr 430px;
+      gap: 1.35rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1140px) {
+      .map-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Graph Canvas Card */
+    .graph-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .graph-toolbar {
+      padding: 0.85rem 1.25rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .graph-instruction {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+    }
+
+    .btn-outline {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+    }
+
+    .graph-canvas {
+      position: relative;
+      width: 100%;
+      height: 670px;
+      background-color: #fcfdff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 22px 22px;
+      overflow: hidden;
+    }
+
+    /* SVG Edges & Directional Arrows */
+    .edges-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .edge-path {
+      stroke: #cbd5e1;
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.25s ease, stroke-width 0.25s ease, opacity 0.25s ease;
+    }
+
+    .edge-path.highlighted {
+      stroke: #4f46e5;
+      stroke-width: 2.8;
+    }
+
+    .edge-path.dimmed {
+      opacity: 0.2;
+    }
+
+    .edge-badge-bg {
+      fill: #ffffff;
+      stroke: #cbd5e1;
+      stroke-width: 1;
+      rx: 6;
+      transition: opacity 0.25s ease, stroke 0.25s ease;
+    }
+
+    .edge-badge-text {
+      fill: #64748b;
+      font-size: 10px;
+      font-weight: 600;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      transition: fill 0.25s ease, opacity 0.25s ease;
+    }
+
+    .edge-group.highlighted .edge-badge-bg {
+      stroke: #4f46e5;
+      fill: #eef2ff;
+    }
+
+    .edge-group.highlighted .edge-badge-text {
+      fill: #3730a3;
+      font-weight: 700;
+    }
+
+    .edge-group.dimmed {
+      opacity: 0.2;
+    }
+
+    /* Concept Map Nodes */
+    .nodes-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .node-btn {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 184px;
+      padding: 0.68rem 0.8rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+      text-align: left;
+      cursor: pointer;
+      transition: transform var(--transition-smooth), box-shadow var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
+      user-select: none;
+    }
+
+    .node-btn:hover {
+      transform: translate(-50%, -53%) scale(1.035);
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+    }
+
+    .node-btn.selected {
+      transform: translate(-50%, -53%) scale(1.055);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.16), var(--shadow-lg);
+      z-index: 15;
+    }
+
+    .node-btn.dimmed {
+      opacity: 0.32;
+    }
+
+    .node-btn.is-hub {
+      width: 210px;
+      text-align: center;
+      background: linear-gradient(145deg, #ffffff, #eef2ff);
+      border-color: var(--cat-hub);
+      box-shadow: 0 8px 22px rgba(79, 70, 229, 0.14);
+    }
+
+    .node-pill {
+      display: inline-block;
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.12rem 0.48rem;
+      border-radius: 999px;
+      margin-bottom: 0.28rem;
+    }
+
+    .node-heading {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    .node-caption {
+      font-size: 0.71rem;
+      color: var(--text-muted);
+      margin-top: 0.22rem;
+      line-height: 1.3;
+    }
+
+    /* Category Accent Borders & Pills */
+    .cat-hub { border-color: var(--cat-hub); }
+    .cat-hub .node-pill { background: var(--cat-hub-soft); color: var(--cat-hub); }
+
+    .cat-core { border-color: var(--cat-core); }
+    .cat-core .node-pill { background: var(--cat-core-soft); color: var(--cat-core); }
+
+    .cat-crisis { border-color: var(--cat-crisis); }
+    .cat-crisis .node-pill { background: var(--cat-crisis-soft); color: var(--cat-crisis); }
+
+    .cat-case { border-color: var(--cat-case); }
+    .cat-case .node-pill { background: var(--cat-case-soft); color: var(--cat-case); }
+
+    .cat-practice { border-color: var(--cat-practice); }
+    .cat-practice .node-pill { background: var(--cat-practice-soft); color: var(--cat-practice); }
+
+    @media (max-width: 820px) {
+      .graph-canvas {
+        height: auto;
+        padding: 1rem;
+      }
+      .edges-layer {
+        display: none;
+      }
+      .nodes-layer {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .node-btn, .node-btn.is-hub {
+        position: static;
+        transform: none !important;
+        width: 100%;
+      }
+    }
+
+    /* ==========================================================================
+       DETAIL INSPECTOR PANEL (RIGHT SIDEBAR)
+       ========================================================================== */
+    .inspector-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 1.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      position: sticky;
+      top: 5.5rem;
+      max-height: calc(100vh - 6.75rem);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 1140px) {
+      .inspector-card {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    .inspector-top {
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.95rem;
+    }
+
+    .inspector-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .inspector-title {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .inspector-desc {
+      font-size: 0.91rem;
+      color: var(--text-secondary);
+      margin-top: 0.45rem;
+    }
+
+    .section-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .concept-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .concept-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .concept-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0.15rem;
+      color: var(--cat-hub);
+      font-weight: 900;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    .editorial-callout {
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--cat-hub);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+
+    .editorial-callout strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .conn-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .conn-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .conn-btn:hover {
+      border-color: var(--cat-hub);
+      background: var(--cat-hub-soft);
+      color: var(--cat-hub);
+    }
+
+    /* Interactive Discussion Questions Accordion */
+    .accordion-item {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      margin-bottom: 0.55rem;
+      overflow: hidden;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border: none;
+      background: transparent;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .accordion-trigger:hover {
+      background: rgba(226, 232, 240, 0.55);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 0.65rem 0.9rem 0.85rem;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .accordion-item.open .accordion-body {
+      display: block;
+    }
+
+    .btn-primary-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.05rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--cat-hub);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    }
+
+    .btn-primary-action:hover {
+      background: #4338ca;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       NBA & COVID-19 TIMELINE VIEW
+       ========================================================================== */
+    .timeline-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 1.75rem;
+    }
+
+    .timeline-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-top h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-top p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      max-width: 780px;
+      margin-top: 0.25rem;
+    }
+
+    .walkthrough-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Horizontal Step Selector Cards */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    @media (max-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-selector {
+      background: var(--bg-subtle);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .step-selector:hover {
+      border-color: var(--cat-crisis);
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .step-selector.active {
+      background: #ffffff;
+      border-color: var(--cat-crisis);
+      box-shadow: 0 10px 22px rgba(217, 119, 6, 0.14);
+    }
+
+    .step-num-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--cat-crisis-soft);
+      color: var(--cat-crisis);
+      border: 1px solid var(--cat-crisis-border);
+      margin-bottom: 0.45rem;
+    }
+
+    .step-selector.active .step-num-pill {
+      background: var(--cat-crisis);
+      color: #ffffff;
+      border-color: var(--cat-crisis);
+    }
+
+    .step-date-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .step-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .step-map-tag {
+      display: inline-block;
+      margin-top: 0.55rem;
+      font-size: 0.71rem;
+      font-weight: 600;
+      color: var(--cat-practice);
+      background: var(--cat-practice-soft);
+      padding: 0.18rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    /* Detailed Stage Breakdown Panel */
+    .stage-breakdown {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 1.5rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 920px) {
+      .stage-breakdown {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .breakdown-left {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .breakdown-left h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin: 0.5rem 0 0.45rem;
+    }
+
+    .breakdown-left p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .action-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .action-checklist li {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .action-checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--cat-core);
+      font-weight: 800;
+    }
+
+    .breakdown-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .insight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .insight-card.best-practice {
+      border-left: 4px solid var(--cat-core);
+    }
+
+    .insight-card.penn-contrast {
+      border-left: 4px solid var(--cat-case);
+    }
+
+    .insight-card h4 {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .insight-card.best-practice h4 {
+      color: var(--cat-core);
+    }
+
+    .insight-card.penn-contrast h4 {
+      color: var(--cat-case);
+    }
+
+    .insight-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       CLEAN EDITORIAL TOP NAVIGATION BAR (TWO CORE VIEWS ONLY)
+       ======================================================================== -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div>
+        <div class="brand-meta">
+          <span class="meta-pill course">SPG 602 • Module Visual Synthesis</span>
+          <span class="meta-pill">Lecture 6: Sport PR &amp; Crisis Communication</span>
+          <span class="meta-pill">Christopher Sanon • Nov 18, 2026</span>
+        </div>
+        <h1 class="app-title">Sport PR &amp; Crisis Communication</h1>
+        <p class="app-subtitle">Interactive Concept Map &amp; NBA COVID-19 Case Study Timeline</p>
+      </div>
+
+      <nav class="view-switcher" aria-label="Primary Views">
+        <button type="button" class="view-btn active" data-view="concept-map">
+          <span>🕸️ Concept Map</span>
+        </button>
+        <button type="button" class="view-btn" data-view="nba-timeline">
+          <span>🏀 NBA &amp; COVID-19 Timeline</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       VIEW 1: INTERACTIVE CONCEPT MAP
+       ======================================================================== -->
+  <main id="view-concept-map" class="view-section active">
+    <!-- Category Filter Pills -->
+    <div class="filter-bar">
+      <div class="filter-pills" role="group" aria-label="Filter Concept Nodes by Category">
+        <button type="button" class="filter-pill active" data-filter="all">All Concepts (7)</button>
+        <button type="button" class="filter-pill" data-filter="core">
+          <span class="swatch" style="background: var(--cat-core);"></span> Core PR &amp; Roles
+        </button>
+        <button type="button" class="filter-pill" data-filter="crisis">
+          <span class="swatch" style="background: var(--cat-crisis);"></span> Crisis Definition &amp; Process
+        </button>
+        <button type="button" class="filter-pill" data-filter="practice">
+          <span class="swatch" style="background: var(--cat-practice);"></span> Best Practices &amp; Trends
+        </button>
+      </div>
+
+      <button type="button" id="resetCenterBtn" class="btn-outline">Reset Center Hub</button>
+    </div>
+
+    <!-- Split Workspace: Interactive Graph + Detail Inspector -->
+    <div class="map-workspace">
+      <section class="graph-card" aria-label="Concept Map Network">
+        <div class="graph-toolbar">
+          <span class="graph-instruction">
+            <strong>Explore Relationships:</strong> Click any concept node to highlight connected ideas and view detailed lecture notes.
+          </span>
+          <span style="font-size:0.78rem; color:var(--text-muted);">7 Nodes • 10 Directed Links</span>
+        </div>
+
+        <div class="graph-canvas" id="graphCanvas">
+          <svg class="edges-layer" id="edgesSvg" viewBox="0 0 1000 670" preserveAspectRatio="none">
+            <defs>
+              <marker id="arrow-default" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#94a3b8"></path>
+              </marker>
+              <marker id="arrow-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#4f46e5"></path>
+              </marker>
+            </defs>
+          </svg>
+          <div class="nodes-layer" id="nodesLayer"></div>
+        </div>
+      </section>
+
+      <aside class="inspector-card" id="inspectorPanel" aria-label="Selected Concept Details"></aside>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       VIEW 2: NBA & COVID-19 CASE STUDY TIMELINE
+       ======================================================================== -->
+  <section id="view-nba-timeline" class="view-section" aria-label="NBA and COVID-19 Case Study Timeline">
+    <div class="timeline-container">
+      <div class="timeline-top">
+        <div>
+          <h2>🏀 Case Example: NBA &amp; COVID-19 Crisis Timeline</h2>
+          <p>
+            Tracing how the NBA executed Lecture 6’s <strong>4-Stage Crisis Communication Process</strong> and <strong>Best Practices</strong> during the March 2020 season suspension—and contrasting it with the Penn State scandal.
+          </p>
+        </div>
+
+        <div class="walkthrough-controls">
+          <button type="button" id="prevStageBtn" class="btn-outline">← Previous</button>
+          <button type="button" id="nextStageBtn" class="btn-outline">Next →</button>
+          <button type="button" id="autoPlayBtn" class="btn-primary-action">▶ Play Walkthrough</button>
+        </div>
+      </div>
+
+      <!-- Horizontal Step Selector Cards -->
+      <div class="steps-grid" id="stepsGrid"></div>
+
+      <!-- Vertical / Deep-Dive Stage Breakdown -->
+      <div class="stage-breakdown" id="stageBreakdown"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       APPLICATION DATA & INTERACTIVITY
+       ======================================================================== -->
+  <script>
+    // ------------------------------------------------------------------------
+    // 1. ALL SPG 602 LECTURE 6 CONCEPT NODES (7 CORE CONCEPTUAL NODES)
+    // ------------------------------------------------------------------------
+    const CONCEPT_NODES = [
+      {
+        id: "hub",
+        category: "hub",
+        tag: "Module Core",
+        title: "Sport PR & Crisis Communication",
+        caption: "SPG 602 • Lecture 6 Synthesis",
+        x: 50,
+        y: 50,
+        summary: "Strategic communication discipline focused on managing stakeholder relationships during everyday operations and protecting organizational reputation during unexpected crises.",
+        bullets: [
+          "Balances proactive relationship-building (Public Relations) with rapid reputation protection (Crisis Communication).",
+          "Operates in a high-visibility, emotionally invested sports ecosystem where fans, athletes, media, and sponsors react instantaneously.",
+          "Anchored by three core pillars: Transparency, Speed, and Accountability."
+        ],
+        callout: {
+          title: "Core Synthesis",
+          text: "Proactive PR builds the goodwill and credibility that sport organizations rely upon when an unexpected negative event threatens their brand."
+        }
+      },
+      {
+        id: "defining-pr",
+        category: "core",
+        tag: "Core PR",
+        title: "Defining Public Relations in Sport",
+        caption: "Stakeholders, Goodwill & Credibility",
+        x: 20,
+        y: 23,
+        summary: "Public Relations in sport is the ongoing strategic management of communication and mutually beneficial relationships between a sport organization and its key publics.",
+        bullets: [
+          "Managing relationships with key stakeholders (fans, athletes, media, corporate sponsors, and local communities).",
+          "Media relations and continuous reputation management.",
+          "Building institutional goodwill and public credibility.",
+          "Maintaining effective communication during both championship success and organizational crisis."
+        ],
+        callout: {
+          title: "Strategic Value",
+          text: "PR is continuous relationship stewardship—not merely issuing press releases after problems emerge."
+        }
+      },
+      {
+        id: "role-of-pr",
+        category: "core",
+        tag: "Core PR",
+        title: "Role of PR in Sport Organizations",
+        caption: "Narratives, Spokesperson & Outreach",
+        x: 20,
+        y: 77,
+        summary: "PR departments shape public perception of teams, leagues, and athletes while aligning brand storytelling with commercial and community objectives.",
+        bullets: [
+          "Crafting narratives and shaping brand image across traditional and digital channels.",
+          "Serving as the official spokesperson and media liaison for teams and athletes.",
+          "Supporting marketing campaigns and protecting corporate sponsorships.",
+          "Coordinating community relations and grassroots fan outreach programs."
+        ],
+        callout: {
+          title: "Commercial & Community Impact",
+          text: "Strong PR safeguards sponsorship equity by ensuring corporate partners are associated with positive, credible sport brands."
+        }
+      },
+      {
+        id: "crisis-defined",
+        category: "crisis",
+        tag: "Crisis Concept",
+        title: "Crisis Communication Defined",
+        caption: "Unexpected Events & Brand Protection",
+        x: 50,
+        y: 16,
+        summary: "Specialized communication deployed when an unexpected negative event threatens stakeholder trust, safety, or brand legitimacy.",
+        bullets: [
+          "Responding decisively to unexpected negative events (scandals, health emergencies, misconduct).",
+          "Protecting organizational or athlete reputation and brand image under intense public scrutiny.",
+          "Providing accurate and timely information to prevent misinformation.",
+          "Mitigating long-term reputational and financial damage."
+        ],
+        callout: {
+          title: "Reputation Defense",
+          text: "Rapid, accurate communication prevents rumors from defining the crisis narrative."
+        }
+      },
+      {
+        id: "crisis-process",
+        category: "crisis",
+        tag: "4-Stage Process",
+        title: "Crisis Communication Process",
+        caption: "Prep → Response → Updates → Learning",
+        x: 80,
+        y: 23,
+        summary: "A structured 4-stage lifecycle guiding sport organizations from pre-crisis preparation through post-crisis institutional learning.",
+        bullets: [
+          "1. Preparations and Planning: Risk assessment, crisis playbooks, and spokesperson readiness.",
+          "2. Initial Response and Message Control: Rapidly establishing verified facts and framing the official response.",
+          "3. Continuous Communication with Stakeholders: Ongoing, transparent updates to players, fans, media, and partners.",
+          "4. Post-Crisis Evaluation and Learning: Reviewing response effectiveness and updating future protocols."
+        ],
+        callout: {
+          title: "Applied in Real Time",
+          text: "Switch to the 'NBA & COVID-19 Timeline' tab to step through all 4 stages during the March 2020 season suspension."
+        },
+        openTimelineBtn: true
+      },
+      {
+        id: "best-practices",
+        category: "practice",
+        tag: "Best Practices",
+        title: "Best Practices in Crisis Communication",
+        caption: "Speed, Transparency & Empathy",
+        x: 80,
+        y: 77,
+        summary: "Proven communication standards that preserve stakeholder trust and prevent crises from spiraling out of control.",
+        bullets: [
+          "Be proactive and prepared with pre-established crisis protocols.",
+          "Respond quickly and transparently—avoiding defensive silence or cover-ups.",
+          "Maintain consistency across all communication platforms (press conferences, social media, internal memos).",
+          "Show genuine empathy and institutional accountability."
+        ],
+        callout: {
+          title: "Trust Formula",
+          text: "Proactive Preparation + Rapid Transparency + Consistent Empathy = Stakeholder Credibility."
+        }
+      },
+      {
+        id: "emerging-trends",
+        category: "practice",
+        tag: "Emerging Trends",
+        title: "Emerging Trends in PR & Crisis",
+        caption: "Social Media, Sentiment & Athletes",
+        x: 50,
+        y: 84,
+        summary: "Digital media and globalized sport audiences have accelerated crisis timelines from days to seconds.",
+        bullets: [
+          "Social media as the first-response platform for breaking news and official statements.",
+          "Real-time monitoring and sentiment analysis to track public reaction minute-by-minute.",
+          "Athlete-driven communication channels (personal social accounts, podcasts) bypassing traditional media.",
+          "Globalization of sport PR challenges across international markets, cultures, and time zones."
+        ],
+        callout: {
+          title: "Digital Urgency",
+          text: "Because fans and athletes broadcast live, PR teams must monitor sentiment continuously and respond within minutes."
+        }
+      }
+    ];
+
+    // ------------------------------------------------------------------------
+    // 2. DIRECTED EDGES BETWEEN CONCEPTS (WITH RELATIONSHIP LABELS)
+    // ------------------------------------------------------------------------
+    const CONCEPT_EDGES = [
+      { from: "hub", to: "defining-pr", label: "grounded in" },
+      { from: "hub", to: "role-of-pr", label: "executed via" },
+      { from: "hub", to: "crisis-defined", label: "tested by" },
+      { from: "hub", to: "crisis-process", label: "structured by" },
+      { from: "hub", to: "best-practices", label: "guided by" },
+      { from: "hub", to: "emerging-trends", label: "reshaped by" },
+      { from: "defining-pr", to: "role-of-pr", label: "operationalizes" },
+      { from: "defining-pr", to: "crisis-defined", label: "protects equity in" },
+      { from: "crisis-defined", to: "crisis-process", label: "activates" },
+      { from: "crisis-process", to: "best-practices", label: "requires" },
+      { from: "best-practices", to: "emerging-trends", label: "adapts to" }
+    ];
+
+    // ------------------------------------------------------------------------
+    // 3. NBA & COVID-19 CASE STUDY TIMELINE STAGES
+    // ------------------------------------------------------------------------
+    const TIMELINE_STAGES = [
+      {
+        step: "Stage 1",
+        date: "Early March 2020 • Pre-Crisis",
+        title: "Pre-Crisis Monitoring & Contingency Planning",
+        frameworkTag: "Crisis Process Stage 1: Preparations & Planning",
+        headline: "Proactive Health Surveillance & Arena Protocol Readiness",
+        description: "Before a single NBA player tested positive, league leadership monitored global COVID-19 developments, consulted infectious disease specialists, and prepared contingency frameworks for potential game disruptions.",
+        actions: [
+          "Established direct advisory channels with public health and infectious disease experts.",
+          "Distributed early locker-room hygiene guidelines and media distancing protocols to all 30 teams.",
+          "Prepared rapid-response internal and external communication chains across franchises and broadcast partners."
+        ],
+        bestPracticeAnalysis: "Demonstrates Best Practice #1 ('Be proactive and prepared'). Pre-crisis readiness prevented internal paralysis and allowed league executives to act decisively within minutes when the trigger event occurred.",
+        pennStateContrast: "Unlike institutions caught without a transparent crisis protocol, the NBA's pre-planning ensured unified decision-making rather than fragmented, defensive reactions."
+      },
+      {
+        step: "Stage 2",
+        date: "March 11, 2020 • Trigger Event",
+        title: "Rudy Gobert Positive Test & Immediate Season Suspension",
+        frameworkTag: "Crisis Process Stage 2: Initial Response & Message Control",
+        headline: "Decisive League-Wide Suspension Minutes Before Tip-Off",
+        description: "Moments before tip-off between the Utah Jazz and Oklahoma City Thunder on March 11, 2020, Rudy Gobert tested positive for COVID-19. The NBA immediately postponed the game and suspended the entire 2019–20 season that night.",
+        actions: [
+          "Halted the Jazz–Thunder game immediately to safeguard players, coaches, officials, and fans in attendance.",
+          "Issued a clear, official league statement announcing the immediate suspension of the season.",
+          "Seized control of the public narrative immediately rather than downplaying medical risks."
+        ],
+        bestPracticeAnalysis: "Exemplifies speed and narrative control. By suspending play immediately, the NBA prevented an information vacuum and set the benchmark for every other major sports league.",
+        pennStateContrast: "Stands in sharp contrast to the Penn State scandal, where institutional slowness and delayed disclosure severely eroded public credibility and worsened reputational harm."
+      },
+      {
+        step: "Stage 3",
+        date: "March 12, 2020 • Stakeholder Framing",
+        title: "Health & Safety Framing + Adam Silver's Transparent Fan Letter",
+        frameworkTag: "Best Practices: Transparency, Empathy & Accountability",
+        headline: "Putting Human Health Above Revenue & Addressing Fans Directly",
+        description: "On March 12, Commissioner Adam Silver published a candid, transparent open letter to NBA fans explaining the suspension, acknowledging uncertainty honestly, and affirming that health and safety outweighed financial losses.",
+        actions: [
+          "Published Adam Silver's transparent letter to fans explaining why the hiatus was necessary and how next steps would be guided by science.",
+          "Consistently framed crisis decisions around protecting player, staff, and community health over gate and broadcast revenue.",
+          "Aligned messaging across the league office, team owners, and the National Basketball Players Association (NBPA)."
+        ],
+        bestPracticeAnalysis: "Embodies empathy, accountability, and cross-platform consistency. Honest acknowledgment of what was known—and not yet known—built deep trust with fans and players.",
+        pennStateContrast: "Whereas Penn State's response was criticized for opacity and institutional self-protection, Silver's direct letter modeled candor and stakeholder empathy."
+      },
+      {
+        step: "Stage 4",
+        date: "Spring 2020 • Continuous Updates",
+        title: "Ongoing Stakeholder & Orlando Bubble Updates",
+        frameworkTag: "Crisis Process Stage 3: Continuous Communication",
+        headline: "Sustained Transparency & Multi-Platform Fan Engagement",
+        description: "Throughout the multi-month hiatus and planning for the Orlando 'Bubble' restart, the NBA maintained regular, transparent communication with players, teams, sponsors, media, and fans across digital channels.",
+        actions: [
+          "Delivered frequent updates on player health, testing protocols, and return-to-play safety benchmarks.",
+          "Maintained consistent messaging across official social media channels, press briefings, and player communications.",
+          "Launched the 'NBA Together' community outreach campaign to share verified public health guidance with global fans."
+        ],
+        bestPracticeAnalysis: "Fulfills Stage 3 ('Continuous Communication with Stakeholders') and leverages social media as a real-time platform to prevent rumors and sustain goodwill.",
+        pennStateContrast: "Silence during prolonged uncertainty breeds speculation; continuous, transparent updates preserved stakeholder confidence throughout the hiatus."
+      },
+      {
+        step: "Stage 5",
+        date: "Summer–Fall 2020 • Evaluation & Learning",
+        title: "Post-Crisis Evaluation & Learnings",
+        frameworkTag: "Crisis Process Stage 4: Post-Crisis Evaluation & Learning",
+        headline: "Executing a Zero-Case Bubble & Institutionalizing Crisis Lessons",
+        description: "Applying medical data and stakeholder feedback gathered during the suspension, the NBA successfully completed the 2020 season inside the Orlando Bubble with zero positive COVID-19 cases—turning crisis lessons into long-term operational protocols.",
+        actions: [
+          "Evaluated testing logistics, quarantine procedures, and athlete mental health support systems.",
+          "Published transparent health and safety protocols that became a blueprint for global sports organizations.",
+          "Institutionalized rapid-response medical and communication workflows for future seasons."
+        ],
+        bestPracticeAnalysis: "Completes Stage 4 ('Post-Crisis Evaluation and Learning'). Transforming a sudden emergency into a safe, trusted return elevated the NBA's long-term brand reputation.",
+        pennStateContrast: "Proves Lecture 6's core thesis: transparency, speed, and accountability protect brand equity and strengthen stakeholder trust over time."
+      }
+    ];
+
+    // ------------------------------------------------------------------------
+    // 4. STATE & VIEW NAVIGATION
+    // ------------------------------------------------------------------------
+    let selectedNodeId = "hub";
+    let activeFilter = "all";
+    let currentStageIndex = 1; // Default to March 11, 2020 Trigger Event
+    let walkthroughInterval = null;
+
+    const viewButtons = document.querySelectorAll(".view-btn");
+    const viewSections = document.querySelectorAll(".view-section");
+
+    function switchView(viewName) {
+      viewButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-view") === viewName);
+      });
+      viewSections.forEach(sec => {
+        sec.classList.toggle("active", sec.id === `view-${viewName}`);
+      });
+      if (viewName !== "nba-timeline") {
+        stopAutoPlay();
+      }
+    }
+
+    viewButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        switchView(btn.getAttribute("data-view"));
+      });
+    });
+
+    // ------------------------------------------------------------------------
+    // 5. RENDER INTERACTIVE CONCEPT MAP & DETAIL INSPECTOR
+    // ------------------------------------------------------------------------
+    const edgesSvg = document.getElementById("edgesSvg");
+    const nodesLayer = document.getElementById("nodesLayer");
+    const inspectorPanel = document.getElementById("inspectorPanel");
+
+    function getConnectedIds(nodeId) {
+      const set = new Set([nodeId]);
+      CONCEPT_EDGES.forEach(edge => {
+        if (edge.from === nodeId) set.add(edge.to);
+        if (edge.to === nodeId) set.add(edge.from);
+      });
+      return set;
+    }
+
+    function renderConceptMap() {
+      const connectedSet = getConnectedIds(selectedNodeId);
+
+      // Clear existing SVG elements except <defs>
+      const defs = edgesSvg.querySelector("defs");
+      edgesSvg.innerHTML = "";
+      if (defs) edgesSvg.appendChild(defs);
+
+      // Draw directed edges with arrowheads
+      CONCEPT_EDGES.forEach(edge => {
+        const fromNode = CONCEPT_NODES.find(n => n.id === edge.from);
+        const toNode = CONCEPT_NODES.find(n => n.id === edge.to);
+        if (!fromNode || !toNode) return;
+
+        const x1 = fromNode.x * 10;
+        const y1 = fromNode.y * 6.7;
+        const x2 = toNode.x * 10;
+        const y2 = toNode.y * 6.7;
+
+        // Shorten target endpoint slightly so SVG arrowhead sits cleanly outside node border
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const len = Math.hypot(dx, dy) || 1;
+        const trim = 56;
+        const endX = x2 - (dx / len) * trim;
+        const endY = y2 - (dy / len) * trim;
+
+        const midX = (x1 + endX) / 2;
+        const midY = (y1 + endY) / 2;
+
+        const isHighlighted = edge.from === selectedNodeId || edge.to === selectedNodeId;
+        const matchesFilter =
+          activeFilter === "all" ||
+          fromNode.category === activeFilter ||
+          toNode.category === activeFilter ||
+          fromNode.id === "hub" ||
+          toNode.id === "hub";
+
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        group.setAttribute("class", `edge-group ${isHighlighted ? "highlighted" : ""} ${!matchesFilter ? "dimmed" : ""}`);
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", x1);
+        line.setAttribute("y1", y1);
+        line.setAttribute("x2", endX);
+        line.setAttribute("y2", endY);
+        line.setAttribute("marker-end", isHighlighted ? "url(#arrow-active)" : "url(#arrow-default)");
+        line.setAttribute(
+          "class",
+          `edge-path ${isHighlighted ? "highlighted" : ""} ${!isHighlighted && selectedNodeId !== "hub" ? "dimmed" : ""}`
+        );
+
+        const labelWidth = edge.label.length * 6 + 14;
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("x", midX - labelWidth / 2);
+        rect.setAttribute("y", midY - 9.5);
+        rect.setAttribute("width", labelWidth);
+        rect.setAttribute("height", 19);
+        rect.setAttribute("class", "edge-badge-bg");
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", midX);
+        text.setAttribute("y", midY + 0.5);
+        text.setAttribute("class", "edge-badge-text");
+        text.textContent = edge.label;
+
+        group.appendChild(line);
+        group.appendChild(rect);
+        group.appendChild(text);
+        edgesSvg.appendChild(group);
+      });
+
+      // Render interactive node buttons
+      nodesLayer.innerHTML = "";
+      CONCEPT_NODES.forEach(node => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+
+        const isSelected = node.id === selectedNodeId;
+        const isConnected = connectedSet.has(node.id);
+        const matchesFilter = activeFilter === "all" || node.category === activeFilter || node.id === "hub";
+        const isDimmed = !matchesFilter || (selectedNodeId !== "hub" && !isConnected);
+
+        btn.className = [
+          "node-btn",
+          node.id === "hub" ? "is-hub cat-hub" : `cat-${node.category}`,
+          isSelected ? "selected" : "",
+          isDimmed ? "dimmed" : ""
+        ].join(" ");
+
+        btn.style.left = `${node.x}%`;
+        btn.style.top = `${node.y}%`;
+        btn.setAttribute("aria-pressed", isSelected ? "true" : "false");
+
+        btn.innerHTML = `
+          <span class="node-pill">${node.tag}</span>
+          <div class="node-heading">${node.title}</div>
+          <div class="node-caption">${node.caption}</div>
+        `;
+
+        btn.addEventListener("click", () => {
+          selectedNodeId = node.id;
+          renderConceptMap();
+          renderInspector();
+        });
+
+        nodesLayer.appendChild(btn);
+      });
+    }
+
+    function renderInspector() {
+      const node = CONCEPT_NODES.find(n => n.id === selectedNodeId) || CONCEPT_NODES[0];
+
+      const badgeMap = {
+        hub: "background: var(--cat-hub-soft); color: var(--cat-hub);",
+        core: "background: var(--cat-core-soft); color: var(--cat-core);",
+        crisis: "background: var(--cat-crisis-soft); color: var(--cat-crisis);",
+        case: "background: var(--cat-case-soft); color: var(--cat-case);",
+        practice: "background: var(--cat-practice-soft); color: var(--cat-practice);"
+      };
+
+      const relatedEdges = CONCEPT_EDGES.filter(e => e.from === node.id || e.to === node.id);
+      const connectionsHtml = relatedEdges.map(edge => {
+        const otherId = edge.from === node.id ? edge.to : edge.from;
+        const otherNode = CONCEPT_NODES.find(n => n.id === otherId);
+        if (!otherNode) return "";
+        return `<button type="button" class="conn-btn" data-node-jump="${otherNode.id}">
+          ${otherNode.title} <span style="opacity:0.7; font-weight:500;">(${edge.label})</span>
+        </button>`;
+      }).join("");
+
+      let discussionAccordionHtml = "";
+      if (node.discussions && node.discussions.length) {
+        discussionAccordionHtml = `
+          <div>
+            <div class="section-label">Discussion Questions (Click to Reveal Answers)</div>
+            ${node.discussions.map((d, index) => `
+              <div class="accordion-item ${index === 0 ? "open" : ""}">
+                <button type="button" class="accordion-trigger">
+                  <span>${d.q}</span>
+                  <span>▾</span>
+                </button>
+                <div class="accordion-body">${d.a}</div>
+              </div>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      const timelineShortcutHtml = node.openTimelineBtn
+        ? `<button type="button" id="openTimelineViewBtn" class="btn-primary-action" style="width:100%;">
+             🏀 Open NBA &amp; COVID-19 Timeline →
+           </button>`
+        : "";
+
+      const calloutHtml = node.callout
+        ? `<div class="editorial-callout">
+             <strong>${node.callout.title || ""}</strong>
+             <span>${node.callout.text || ""}</span>
+           </div>`
+        : "";
+
+      inspectorPanel.innerHTML = `
+        <div class="inspector-top">
+          <span class="inspector-badge" style="${badgeMap[node.category] || ""}">${node.tag}</span>
+          <h2 class="inspector-title">${node.title}</h2>
+          <p class="inspector-desc">${node.summary}</p>
+        </div>
+
+        <div>
+          <div class="section-label">Key Lecture Concepts</div>
+          <ul class="concept-bullets">
+            ${(node.bullets || []).map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        ${calloutHtml}
+
+        ${discussionAccordionHtml}
+        ${timelineShortcutHtml}
+
+        <div>
+          <div class="section-label">Connected Concepts (${relatedEdges.length})</div>
+          <div class="conn-list">${connectionsHtml}</div>
+        </div>
+      `;
+
+      inspectorPanel.querySelectorAll("[data-node-jump]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          selectedNodeId = btn.getAttribute("data-node-jump");
+          renderConceptMap();
+          renderInspector();
+        });
+      });
+
+      inspectorPanel.querySelectorAll(".accordion-trigger").forEach(trigger => {
+        trigger.addEventListener("click", () => {
+          trigger.parentElement.classList.toggle("open");
+        });
+      });
+
+      const timelineBtn = document.getElementById("openTimelineViewBtn");
+      if (timelineBtn) {
+        timelineBtn.addEventListener("click", () => {
+          switchView("nba-timeline");
+        });
+      }
+    }
+
+    // Category filter pill listeners
+    document.querySelectorAll(".filter-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        activeFilter = pill.getAttribute("data-filter");
+        renderConceptMap();
+      });
+    });
+
+    document.getElementById("resetCenterBtn").addEventListener("click", () => {
+      selectedNodeId = "hub";
+      activeFilter = "all";
+      document.querySelectorAll(".filter-pill").forEach(p => {
+        p.classList.toggle("active", p.getAttribute("data-filter") === "all");
+      });
+      renderConceptMap();
+      renderInspector();
+    });
+
+    // ------------------------------------------------------------------------
+    // 6. RENDER NBA & COVID-19 TIMELINE & AUTO-ADVANCE WALKTHROUGH
+    // ------------------------------------------------------------------------
+    const stepsGrid = document.getElementById("stepsGrid");
+    const stageBreakdown = document.getElementById("stageBreakdown");
+
+    function renderTimeline() {
+      stepsGrid.innerHTML = TIMELINE_STAGES.map((stage, idx) => `
+        <button type="button" class="step-selector ${idx === currentStageIndex ? "active" : ""}" data-stage="${idx}">
+          <span class="step-num-pill">${stage.step}</span>
+          <span class="step-date-label">${stage.date}</span>
+          <div class="step-card-title">${stage.title}</div>
+          <span class="step-map-tag">${stage.frameworkTag}</span>
+        </button>
+      `).join("");
+
+      stepsGrid.querySelectorAll(".step-selector").forEach(card => {
+        card.addEventListener("click", () => {
+          stopAutoPlay();
+          currentStageIndex = Number(card.getAttribute("data-stage"));
+          renderTimeline();
+        });
+      });
+
+      const active = TIMELINE_STAGES[currentStageIndex];
+      stageBreakdown.innerHTML = `
+        <div class="breakdown-left">
+          <div style="display:flex; flex-wrap:wrap; gap:0.45rem; align-items:center;">
+            <span class="meta-pill course">${active.step} of 5</span>
+            <span class="meta-pill">${active.date}</span>
+            <span class="meta-pill" style="background:var(--cat-practice-soft); color:var(--cat-practice); border-color:var(--cat-practice-border);">${active.frameworkTag}</span>
+          </div>
+          <h3>${active.headline}</h3>
+          <p>${active.description}</p>
+          <div class="section-label">Key League &amp; PR Actions</div>
+          <ul class="action-checklist">
+            ${active.actions.map(act => `<li>${act}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="breakdown-right">
+          <div class="insight-card best-practice">
+            <h4>✓ Lecture 6 Best Practices Alignment</h4>
+            <p>${active.bestPracticeAnalysis}</p>
+          </div>
+          <div class="insight-card penn-contrast">
+            <h4>⚖ Contrast with Penn State Scandal</h4>
+            <p>${active.pennStateContrast}</p>
+          </div>
+        </div>
+      `;
+
+      document.getElementById("prevStageBtn").disabled = currentStageIndex === 0;
+      document.getElementById("nextStageBtn").disabled = currentStageIndex === TIMELINE_STAGES.length - 1;
+    }
+
+    function stopAutoPlay() {
+      if (walkthroughInterval) {
+        clearInterval(walkthroughInterval);
+        walkthroughInterval = null;
+        document.getElementById("autoPlayBtn").textContent = "▶ Play Walkthrough";
+      }
+    }
+
+    document.getElementById("prevStageBtn").addEventListener("click", () => {
+      stopAutoPlay();
+      if (currentStageIndex > 0) {
+        currentStageIndex--;
+        renderTimeline();
+      }
+    });
+
+    document.getElementById("nextStageBtn").addEventListener("click", () => {
+      stopAutoPlay();
+      if (currentStageIndex < TIMELINE_STAGES.length - 1) {
+        currentStageIndex++;
+        renderTimeline();
+      }
+    });
+
+    document.getElementById("autoPlayBtn").addEventListener("click", () => {
+      if (walkthroughInterval) {
+        stopAutoPlay();
+        return;
+      }
+      document.getElementById("autoPlayBtn").textContent = "⏸ Pause Walkthrough";
+      walkthroughInterval = setInterval(() => {
+        currentStageIndex = (currentStageIndex + 1) % TIMELINE_STAGES.length;
+        renderTimeline();
+      }, 3400);
+    });
+
+    // ------------------------------------------------------------------------
+    // INITIALIZE APPLICATION
+    // ------------------------------------------------------------------------
+    window.addEventListener("DOMContentLoaded", () => {
+      renderConceptMap();
+      renderInspector();
+      renderTimeline();
+    });
+  </script>
+</body>
+</html>
